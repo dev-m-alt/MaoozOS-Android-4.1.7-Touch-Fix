@@ -1,4 +1,3 @@
-```yaml
 name: Build MaoozOS Android 4.1.8
 
 on:
@@ -97,14 +96,18 @@ jobs:
           echo "APK generated successfully:"
           ls -lh "$APK"
 
+      - name: Prepare versioned APK
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk \
+            MaoozOS-Android-4.1.8.apk
+
       - name: Publish APK to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: MaoozOS-Android-4.1.8
           name: MaoozOS Android 4.1.8
           body: MaoozOS Android 4.1.8 APK
-          files: app/build/outputs/apk/debug/app-debug.apk#MaoozOS-Android-4.1.8.apk
+          files: MaoozOS-Android-4.1.8.apk
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
