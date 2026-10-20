@@ -1,4 +1,3 @@
-```yaml
 name: Build MaoozOS Android 4.1.8
 
 on:
@@ -63,7 +62,7 @@ jobs:
           java-version: '17'
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Install Android SDK
         run: |
@@ -104,4 +103,3 @@ jobs:
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 30
-```
