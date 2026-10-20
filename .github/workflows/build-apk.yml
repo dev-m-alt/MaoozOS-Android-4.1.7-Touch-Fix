@@ -100,10 +100,10 @@ jobs:
       - name: Publish APK to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: MaoozOS-4.1.8
+          tag_name: MaoozOS-Android-4.1.8
           name: MaoozOS Android 4.1.8
           body: MaoozOS Android 4.1.8 APK
-          files: app/build/outputs/apk/debug/app-debug.apk
+          files: app/build/outputs/apk/debug/app-debug.apk#MaoozOS-Android-4.1.8.apk
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
