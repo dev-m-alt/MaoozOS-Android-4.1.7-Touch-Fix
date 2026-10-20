@@ -1,4 +1,4 @@
-name: Build MaoozOS Android 4.1.8
+name: Build MaoozOS Android 4.1.8 final
 
 on:
   workflow_dispatch:
