@@ -1,3 +1,4 @@
+```yaml
 name: Build MaoozOS Android 4.1.8
 
 on:
@@ -7,7 +8,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -96,10 +97,14 @@ jobs:
           echo "APK generated successfully:"
           ls -lh "$APK"
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+      - name: Publish APK to GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: MaoozOS-Android-4.1.8-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
-          retention-days: 30
+          tag_name: MaoozOS-4.1.8
+          name: MaoozOS Android 4.1.8
+          body: MaoozOS Android 4.1.8 APK
+          files: app/build/outputs/apk/debug/app-debug.apk
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
